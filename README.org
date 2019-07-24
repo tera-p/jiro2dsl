@@ -6,6 +6,9 @@
 [[https://www.eijiro.jp/get-144.htm][英辞郎のテキスト形式 (いわゆる「辞郎形式」) 辞書]]を，[[http://goldendict.org/][GoldenDict]] などの
 辞書引きツールで利用可能な [[http://lingvo.helpmax.net/en/troubleshooting/dsl-compiler/][ABBYY Lingvo DSL 形式]]に変換します．
 
+#+CAPTION: GoldenDict での使用例
+[[./sample1.png]]
+
 * 特徴
 
 [[http://www.eijiro.jp/spec.htm][英辞郎データ形式の説明]]に基づき，辞書エントリの構造を (ある程度) DSL 形
@@ -41,7 +44,7 @@ Python3.6+ を利用可能な環境で，以下の手順で準備・実行して
 
   1. [[https://github.com/lark-parser/lark][Lark]] をインストール (=pip install lark-parser=; *lark ではなく
      lark-parser* であることに注意) した後，
-  2. rangestr.py と jiro2dsl.py をダウンロードし，
+  2. [[https://raw.githubusercontent.com/tera-p/jiro2dsl/master/rangestr.py][rangestr.py]] と [[https://raw.githubusercontent.com/tera-p/jiro2dsl/master/jiro2dsl.py][jiro2dsl.py]] をダウンロードし，
   3. =./jiro2dsl.py EIJIRO-1445.TXT= などとして実行してください．
 
 詳細な使い方は =jiro2dsl.py -h= で表示される usage を参照してください
