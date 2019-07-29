@@ -8,7 +8,7 @@ from lark import Lark, Transformer
 from rangestr import to_numbers
 
 
-def main(args):
+def main(argv):
     """英辞郎テキスト形式の辞書を Lingvo DSL 形式辞書に変換する．
 
     OUTFILE が省略された場合，infile の拡張子を ".dsl" に置換した名前
@@ -33,7 +33,7 @@ def main(args):
     および "1,2,4,5,6,9,10" はいずれも同じ意味として扱われる．
 
     """
-    jiro2dsl(parse_args(args))
+    jiro2dsl(parse_args(argv))
 
 
 def parse_args(argv):
@@ -124,7 +124,8 @@ class Jiro2DSL(Transformer):
                'body': ["trn"],
                'tagname': ["b", (" [c brown]", "[/c] ")],
                'example': [_m2, "ex"],
-               'comment': [(" [com]◆", "[/com]")],
+               # 'comment': [(" [com]◆", "[/com]")],
+               'comment': ["com", (" [c gray]◆", "[/c]")],
                'ref': [(" <<", ">>")], }
 
     def __init__(self):
@@ -166,6 +167,6 @@ def transform(entry, parser, formatter):
 
 
 test_arg = "-e utf-8 -l -10000 EIJIRO-1445-utf8.txt"
-args = sys.argv[1:] if sys.argv[0] else test_arg.split()
+argv = sys.argv[1:] if sys.argv[0] else test_arg.split()
 
-main(args)
+main(argv)
